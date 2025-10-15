@@ -389,6 +389,8 @@ ScanPy has set an AnnData community standard of defining the `*.obs` value by th
 
 The string specified by the user for `[cellannotation_setname]` will be used as the pandas DataFrame column name (key) to encode the following cell annotation metadata columns in `*.obs`.
 
+NOTE: The `[cellannotation_setname]` `obs` column should contain human-readable, free-text cell annotation names. A common practice is to use shortened biological entity names that are convenient to work with in the UI.
+
 NOTE: A dataset may have multiple sets of cell annotations each with a  cooresponding set of cell annotation metadata, e.g. <code>'cell_type'</code> and <code>'broadclustering_celltype'</code>. 
 
 NOTE: Certain keywords have been reserved for annotating cells:
@@ -436,6 +438,8 @@ NOTE: Certain keywords have been reserved for annotating cells:
 **Format:** The column name is the value `[cellannotation_setname]` concatenated with the string `'cell_fullname'` and two hyphens, i.e. `[cellannotation_setname] + '--' + 'cell_fullname'`
 
 For example, if the user specified the cell annotation as `broad_cells1`, then the name of the column in the pandas DataFrame will be `broad_cells1--cell_fullname`. 
+
+NOTE: The `[cellannotation_setname]--cell_fullname` field is intended for cases where a cell annotation does not exist in the corresponding ontology. This field should contain a suggested name for a new ontology entity. In the more common case where an ontology term already exists for this cell annotation, this field must be identical to `[cellannotation_setname]--cell_ontology_term`.
 
 <table><tbody>
 	<tr>
@@ -508,6 +512,8 @@ For example, if the user specified the cell annotation as `broad_cells1`, then t
 
 **Format:** The column name is the value `[cellannotation_setname]` concatenated with the string `'cell_ontology_term_id'` and two hyphens, i.e. `[cellannotation_setname] + '--' + 'cell_ontology_term_id'`
 
+NOTE: If the `[cellannotation_setname]--cell_ontology_exists` field is `False`, the `[cellannotation_setname]--cell_ontology_term_id` field must contain the ontology term ID of the closest existing entity in the ontology. The suggested name for the new ontology term should be provided in `[cellannotation_setname]--cell_fullname`.
+
 <table><tbody>
 	<tr>
   		<td><b>column</b></td>
@@ -543,6 +549,8 @@ For example, if the user specified the cell annotation as `broad_cells1`, then t
 ### [cellannotation_setname]--cell_ontology_term
 
 **Format:** The column name is the value `[cellannotation_setname]` concatenated with the string `'cell_ontology_term'` and two hyphens, i.e. `[cellannotation_setname] + '--' + 'cell_ontology_term'`
+
+NOTE: If the `[cellannotation_setname]--cell_ontology_exists` field is `False`, the `[cellannotation_setname]--cell_ontology_term` field must contain the ontology term name of the closest existing entity in the ontology. The suggested name for the new ontology term should be provided in `[cellannotation_setname]--cell_fullname`.
 
 <table><tbody>
 	<tr>
