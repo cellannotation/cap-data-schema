@@ -441,6 +441,8 @@ For example, if the user specified the cell annotation as `broad_cells1`, then t
 
 NOTE: The `[cellannotation_setname]--cell_fullname` field is intended for cases where a cell annotation does not exist in the corresponding ontology. This field should contain a suggested name for a new ontology entity. In the more common case where an ontology term already exists for this cell annotation, this field must be identical to `[cellannotation_setname]--cell_ontology_term`.
 
+NOTE: In the case of cell types first characterized by single-cell RNA sequencing (scRNAseq) with no corresponding term in the ontology, we *STRONGLY* encourage users to use gene expression as nomenclature, e.g. "Dendritic Cells AXL+ SIGLEC6+".
+
 <table><tbody>
 	<tr>
   		<td><b>column</b></td>
