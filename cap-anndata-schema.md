@@ -416,7 +416,7 @@ NOTE: Certain keywords have been reserved for annotating cells:
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>Any free-text term which the author uses to annotate cells, the preferred cell label name used by the author.</td>
+  		<td>Any free-text term which the author uses to annotate cells, the preferred cell label name used by the author. Abbreviations are acceptable.</td>
 	</tr>
 	<tr>
   		<td><b>source</b></td>
@@ -616,7 +616,7 @@ NOTE: If the `[cellannotation_setname]--cell_ontology_exists` field is `False`, 
 	</tr>
 	<tr>
   		<td><b>example</b></td>
-  		<td><code>'This cell was annotated with [blank] given the canonical markers in the field [X], [Y], [Z]. We noticed [X] and [Y] running differential expression.'</code></td>
+  		<td><code>'This cell was annotated with [blank] given the canonical markers in the field [X], [Y], [Z]. We noticed [X] and [Y] running differential expression using Seurat v5.'</code></td>
 	</tr>
 </tbody></table>
 
@@ -686,7 +686,7 @@ NOTE: If the `[cellannotation_setname]--cell_ontology_exists` field is `False`, 
 	</tr>
 	<tr>
   		<td><b>example</b></td>
-  		<td><code>'TP53, KRAS, BRCA1'</code></td>
+  		<td><code>'AXL, SIGLEC1, SIGLEC6'</code></td>
 	</tr>
 </tbody></table>
 
