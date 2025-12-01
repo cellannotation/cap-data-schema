@@ -758,7 +758,7 @@ NOTE: If the `[cellannotation_setname]--cell_ontology_exists` field is `False`, 
 	</tr>
 	<tr>
   		<td><b>example</b></td>
-  		<td><code>'neuroglial cell, glial cell, neuroglia'</code> or <code>'amacrine cell'</code> or <code>'FMB cell'</code></td>
+  		<td><code>'neuroglial cell, glial cell, neuroglia'</code> or <code>'effector B cells, plasma B-cells, plasmacyte'</code> 
 	</tr>
 </tbody></table>
 
