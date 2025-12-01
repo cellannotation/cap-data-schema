@@ -396,7 +396,7 @@ NOTE: A dataset may have multiple sets of cell annotations each with a  coorespo
 NOTE: Certain keywords have been reserved for annotating cells:
 
 - The term `'doublets'` is reserved for encoding cells defined as doublets based on some computational analysis. By “doublets”, we refer to the sequencing artifact within droplet-based protocols whereby two or more cells are tagged with the same barcode.
-- The term `'junk'` is reserved for encoding cells that failed sequencing (and QC filtering) for some reason, e.g. few genes detected, high fraction of mitochondrial read. Researchers have found such a generic term useful. 
+- The term `'junk'` is reserved for encoding cells that failed sequencing (and QC filtering) for some reason, e.g. few genes detected, high fraction of mitochondrial read. 
 - The term `'unknown'` is specifically reserved for cells which the author did not know how to annotate with a biological entity. It is a generic term meaning “I do not know”. 
 
 **Format:** The column name is the string `[cellannotation_setname]` and the values are the strings of `cell_label`. Refer to the fields `cellannotation_setname` and `cell_label` in the JSON Schema.
