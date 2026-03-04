@@ -396,7 +396,7 @@ NOTE: A dataset may have multiple sets of cell annotations each with a  coorespo
 NOTE: Certain keywords have been reserved for annotating cells:
 
 - The term `'doublets'` is reserved for encoding cells defined as doublets based on some computational analysis. By “doublets”, we refer to the sequencing artifact within droplet-based protocols whereby two or more cells are tagged with the same barcode.
-- The term `'junk'` is reserved for encoding cells that failed sequencing for some reason, e.g. few genes detected, high fraction of mitochondrial read. Researchers have found such a generic term useful. 
+- The term `'junk'` is reserved for encoding cells that failed sequencing (and QC filtering) for some reason, e.g. few genes detected, high fraction of mitochondrial read. 
 - The term `'unknown'` is specifically reserved for cells which the author did not know how to annotate with a biological entity. It is a generic term meaning “I do not know”. 
 
 **Format:** The column name is the string `[cellannotation_setname]` and the values are the strings of `cell_label`. Refer to the fields `cellannotation_setname` and `cell_label` in the JSON Schema.
@@ -416,7 +416,7 @@ NOTE: Certain keywords have been reserved for annotating cells:
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>Any free-text term which the author uses to annotate cells, the preferred cell label name used by the author.</td>
+  		<td>Any free-text term which the author uses to annotate cells, the preferred cell label name used by the author. Abbreviations are acceptable.</td>
 	</tr>
 	<tr>
   		<td><b>source</b></td>
@@ -440,6 +440,8 @@ NOTE: Certain keywords have been reserved for annotating cells:
 For example, if the user specified the cell annotation as `broad_cells1`, then the name of the column in the pandas DataFrame will be `broad_cells1--cell_fullname`. 
 
 NOTE: The `[cellannotation_setname]--cell_fullname` field is intended for cases where a cell annotation does not exist in the corresponding ontology. This field should contain a suggested name for a new ontology entity. In the more common case where an ontology term already exists for this cell annotation, this field must be identical to `[cellannotation_setname]--cell_ontology_term`.
+
+NOTE: In the case of cell types first characterized by single-cell RNA sequencing (scRNAseq) with no corresponding term in the ontology, we *STRONGLY* encourage users to use gene expression as nomenclature, e.g. "Dendritic Cells AXL+ SIGLEC6+".
 
 <table><tbody>
 	<tr>
@@ -614,7 +616,7 @@ NOTE: If the `[cellannotation_setname]--cell_ontology_exists` field is `False`, 
 	</tr>
 	<tr>
   		<td><b>example</b></td>
-  		<td><code>'This cell was annotated with [blank] given the canonical markers in the field [X], [Y], [Z]. We noticed [X] and [Y] running differential expression.'</code></td>
+  		<td><code>'This cell was annotated with [blank] given the canonical markers in the field [X], [Y], [Z]. We noticed [X] and [Y] running differential expression using Seurat v5.'</code></td>
 	</tr>
 </tbody></table>
 
@@ -684,7 +686,7 @@ NOTE: If the `[cellannotation_setname]--cell_ontology_exists` field is `False`, 
 	</tr>
 	<tr>
   		<td><b>example</b></td>
-  		<td><code>'TP53, KRAS, BRCA1'</code></td>
+  		<td><code>'AXL, SIGLEC1, SIGLEC6'</code></td>
 	</tr>
 </tbody></table>
 
@@ -756,7 +758,7 @@ NOTE: If the `[cellannotation_setname]--cell_ontology_exists` field is `False`, 
 	</tr>
 	<tr>
   		<td><b>example</b></td>
-  		<td><code>'neuroglial cell, glial cell, neuroglia'</code> or <code>'amacrine cell'</code> or <code>'FMB cell'</code></td>
+  		<td><code>'neuroglial cell, glial cell, neuroglia'</code> or <code>'effector B cells, plasma B-cells, plasmacyte'</code> 
 	</tr>
 </tbody></table>
 
