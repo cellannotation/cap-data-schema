@@ -1,0 +1,20 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+## [1.0.2]
+
+### Added
+- Added `[cellannotation_setname]--confidence_score` to `obs` section
+
+## [1.0.1]
+
+### Added
+- Added `hierarchy` to `uns` section
+
+## [1.0.0]
+
+### Changed
+- Renamed `dataset_title` to `title`
+- Renamed `dataset_description` to `description`
+- Renamed `cellannotation_setdescription` to `description` 
