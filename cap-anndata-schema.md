@@ -2,7 +2,7 @@
 
 Contact: [...]
 
-Version: 1.0.2  
+Version: 2.0.0
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED" "MAY", and "OPTIONAL" in this document are to be interpreted as described in [BCP 14](https://tools.ietf.org/html/bcp14), [RFC2119](https://www.rfc-editor.org/rfc/rfc2119.txt), and [RFC8174](https://www.rfc-editor.org/rfc/rfc8174.txt) when, and only when, they appear in all capitals, as shown here.
 
@@ -1008,101 +1008,8 @@ whereby:
 
 # uns (Dataset metadata)
 
+**NOTE:** Most fields are isolated in the `uns["cap_metadata"]` dictionary container to prevent conflicts with other AnnData schemas, except for `uns["title"]`, which has the same key name and meaning in most known AnnData schemas.
 **NOTE:** Each time a cell annotation `cellannotation_setname` is modified, these values potentially change. 
-
-## cellannotation_schema_version
-
-Key-value pair in the `uns` dictionary
-
-<table><tbody>
-	<tr>
-  		<td><b>key</b></td>
-  		<td><code>cellannotation_schema_version</code></td>
-	</tr>
-	<tr>
-  		<td><b>type</b></td>
-  		<td>string</td>
-	</tr>
-	<tr>
-  		<td><b>value</b></td>
-  		<td>The schema version, the cell annotation open standard. 
-This versioning MUST follow the format <code>'[MAJOR].[MINOR].[PATCH]'</code> as defined by <a href="https://semver.org">Semantic Versioning 2.0.0.</a> Current version MUST follow 0.1.0</td>
-	</tr>
-	<tr>
-  		<td><b>source</b></td>
-  		<td>software</td>
-	</tr>
-	<tr>
-  		<td><b>required for publication on CAP</b></td>
-  		<td>yes</td>
-	</tr>
-	<tr>
-  		<td><b>example</b></td>
-  		<td><code>'0.1.0'</code></td>
-	</tr>
-</tbody></table>
-
-
-## publication_timestamp
-
-Key-value pair in the `uns` dictionary
-
-<table><tbody>
-	<tr>
-  		<td><b>key</b></td>
-  		<td><code>publication_timestamp</code></td>
-	</tr>
-	<tr>
-  		<td><b>type</b></td>
-  		<td>string</td>
-	</tr>
-	<tr>
-  		<td><b>value</b></td>
-  		<td>The timestamp of the dataset published on CAP. This MUST be a string in the format <code>%yyyy-%MM-%dd'T'%hh:%mm:%ss</code>.</td>
-	</tr>
-	<tr>
-  		<td><b>source</b></td>
-  		<td>software</td>
-	</tr>
-	<tr>
-  		<td><b>required for publication on CAP</b></td>
-  		<td>yes</td>
-	</tr>
-	<tr>
-  		<td><b>example</b></td>
-  		<td><code>'2023-11-21T04:12:36'</code></td>
-	</tr>
-</tbody></table>
-
-## publication_version
-
-Key-value pair in the `uns` dictionary
-
-<table><tbody>
-	<tr>
-  		<td><b>key</b></td>
-  		<td><code>publication_version</code></td>
-	</tr>
-	<tr>
-  		<td><b>type</b></td>
-  		<td>string of <code>'v' + '[integer]'</code></td>
-	</tr>
-	<tr>
-  		<td><b>value</b></td>
-  		<td>This versioning MUST follow the format <code>'v' + '[integer]'</code>, whereby newer versions must be naturally incremented.</td>
-	</tr>
-  		<td><b>source</b></td>
-  		<td>software</td>
-	</tr>
-	<tr>
-  		<td><b>required for publication on CAP</b></td>
-  		<td>yes</td>
-	</tr>
-	<tr>
-  		<td><b>example</b></td>
-  		<td><code>'v1'</code> or <code>'v3'</code></td>
-	</tr>
-</tbody></table>
 
 ## title
 
@@ -1135,8 +1042,105 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
+## cap_metadata
 
-## description
+Key-value pair in the `uns` dictionary. Contains all the metadata fields required for publication on CAP except for `title`.
+
+## cap_metadata["cellannotation_schema_version"]
+
+Key-value pair in the `uns` dictionary
+
+<table><tbody>
+	<tr>
+  		<td><b>key</b></td>
+  		<td><code>cellannotation_schema_version</code></td>
+	</tr>
+	<tr>
+  		<td><b>type</b></td>
+  		<td>string</td>
+	</tr>
+	<tr>
+  		<td><b>value</b></td>
+  		<td> The schema version, which was used upon dataset creation or publication on CAP. Current version MUST be <code>"2.0.0"</code>.</td>
+	</tr>
+	<tr>
+  		<td><b>source</b></td>
+  		<td>software</td>
+	</tr>
+	<tr>
+  		<td><b>required for publication on CAP</b></td>
+  		<td>yes</td>
+	</tr>
+	<tr>
+  		<td><b>example</b></td>
+  		<td><code>'2.0.0'</code></td>
+	</tr>
+</tbody></table>
+
+
+## cap_metadata["publication_timestamp"]
+
+Key-value pair in the `uns` dictionary
+
+<table><tbody>
+	<tr>
+  		<td><b>key</b></td>
+  		<td><code>publication_timestamp</code></td>
+	</tr>
+	<tr>
+  		<td><b>type</b></td>
+  		<td>string</td>
+	</tr>
+	<tr>
+  		<td><b>value</b></td>
+  		<td>The timestamp of the dataset published on CAP. This MUST be a string in the format <code>%yyyy-%MM-%dd'T'%hh:%mm:%ss</code>.</td>
+	</tr>
+	<tr>
+  		<td><b>source</b></td>
+  		<td>software</td>
+	</tr>
+	<tr>
+  		<td><b>required for publication on CAP</b></td>
+  		<td>yes</td>
+	</tr>
+	<tr>
+  		<td><b>example</b></td>
+  		<td><code>'2023-11-21T04:12:36'</code></td>
+	</tr>
+</tbody></table>
+
+## cap_metadata["publication_version"]
+
+Key-value pair in the `uns` dictionary
+
+<table><tbody>
+	<tr>
+  		<td><b>key</b></td>
+  		<td><code>publication_version</code></td>
+	</tr>
+	<tr>
+  		<td><b>type</b></td>
+  		<td>string of <code>'v' + '[integer]'</code></td>
+	</tr>
+	<tr>
+  		<td><b>value</b></td>
+  		<td>This versioning MUST follow the format <code>'v' + '[integer]'</code>, whereby newer versions must be naturally incremented.</td>
+	</tr>
+  		<td><b>source</b></td>
+  		<td>software</td>
+	</tr>
+	<tr>
+  		<td><b>required for publication on CAP</b></td>
+  		<td>yes</td>
+	</tr>
+	<tr>
+  		<td><b>example</b></td>
+  		<td><code>'v1'</code> or <code>'v3'</code></td>
+	</tr>
+</tbody></table>
+
+
+## cap_metadata["description"]
 
 Key-value pair in the `uns` dictionary
 
@@ -1167,7 +1171,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## cap_dataset_url
+## cap_metadata["cap_dataset_url"]
 
 Key-value pair in the `uns` dictionary
 
@@ -1198,7 +1202,7 @@ Key-value pair in the `uns` dictionary
 </tbody></table>
 
 
-## cap_publication_title
+## cap_metadata["cap_publication_title"]
 
 Key-value pair in the `uns` dictionary
 
@@ -1230,7 +1234,7 @@ Key-value pair in the `uns` dictionary
 </tbody></table>
 
 
-## cap_publication_description
+## cap_metadata["cap_publication_description"]
 
 Key-value pair in the `uns` dictionary
 
@@ -1260,7 +1264,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## cap_publication_url
+## cap_metadata["cap_publication_url"]
 
 Key-value pair in the `uns` dictionary
 
@@ -1290,7 +1294,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## authors_list
+## cap_metadata["authors_list"]
 
 Key-value pair in the `uns` dictionary
 
@@ -1320,7 +1324,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## author_name
+## cap_metadata["author_name"]
 
 Key-value pair in the `uns` dictionary
 
@@ -1335,7 +1339,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>This MUST be a string in the format <code>[FIRST NAME] [LAST NAME]</code>.</td>
+  		<td>Name of the corresponding author of the publication. This MUST be a string in the format <code>[FIRST NAME] [LAST NAME]</code>.</td>
 	</tr>
 	<tr>
   		<td><b>source</b></td>
@@ -1352,7 +1356,7 @@ Key-value pair in the `uns` dictionary
 </tbody></table>
 
 
-## author_contact
+## cap_metadata["author_contact"]
 
 Key-value pair in the `uns` dictionary
 
@@ -1367,7 +1371,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>This MUST be a valid email address of the author.</td>
+  		<td>This MUST be a valid email address of the corresponding author.</td>
 	</tr>
 	<tr>
   		<td><b>source</b></td>
@@ -1383,7 +1387,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## author_orcid
+## cap_metadata["author_orcid"]
 
 Key-value pair in the `uns` dictionary
 
@@ -1398,7 +1402,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>This MUST be a valid ORCID for the author.</td>
+  		<td>This MUST be a valid ORCID for the corresponding author.</td>
 	</tr>
 	<tr>
   		<td><b>source</b></td>
@@ -1414,7 +1418,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## hierarchy
+## cap_metadata["hierarchy"]
 
 A dictionary in the `uns` dictionary
 
@@ -1445,12 +1449,9 @@ A dictionary in the `uns` dictionary
 	</tr>
 </tbody></table>
 
-## cellannotation_metadata
+## cap_metadata["cellannotation_metadata"]
 
-Python dictionary within the `uns` dictionary, with the key the string `[cellannotation_setname]`
-
-
-#### cellannotation_metadata
+Python dictionary within the `uns` dictionary, with the key the string `[cellannotation_setname]`. Contains all the metadata related to the cell annotation set, also known as a labelset.
 
 <table><tbody>
 	<tr>
@@ -1479,7 +1480,7 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
 	</tr>
 </tbody></table>
 
-#### description
+#### cellannotation_metadata["description"]
 
 <table><tbody>
 	<tr>
@@ -1508,7 +1509,7 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
 	</tr>
 </tbody></table>
 
-#### annotation_method
+#### cellannotation_metadata["annotation_method"]
 
 <table><tbody>
 	<tr>
@@ -1537,7 +1538,7 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
 	</tr>
 </tbody></table>
 
-#### algorithm_name
+#### cellannotation_metadata["algorithm_name"]
 
 <table><tbody>
 	<tr>
@@ -1566,7 +1567,7 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
 	</tr>
 </tbody></table>
 
-#### algorithm_version
+#### cellannotation_metadata["algorithm_version"]
 
 <table><tbody>
 	<tr>
@@ -1595,7 +1596,7 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
 	</tr>
 </tbody></table>
 
-#### algorithm_repo_url
+#### cellannotation_metadata["algorithm_repo_url"]
 
 <table><tbody>
 	<tr>
@@ -1625,7 +1626,7 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
 </tbody></table>
 
 
-#### reference_location
+#### cellannotation_metadata["reference_location"]
 
 <table><tbody>
 	<tr>
@@ -1654,7 +1655,7 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
 	</tr>
 </tbody></table>
 
-#### reference_description
+#### cellannotation_metadata["reference_description"]
 
 <table><tbody>
 	<tr>
@@ -1682,22 +1683,3 @@ Python dictionary within the `uns` dictionary, with the key the string `[cellann
   		<td><code>'Tabula Muris Senis: a single cell transcriptomic atlas across the life span of Mus musculus which includes data from 18 tissues and organs.'</code>or if <code>'manual'</code> then <code>'NA'</code></td>
 	</tr>
 </tbody></table>
-
-# Appendix: Changelog
-
-schema version 1.0.0 
- <ul>
-  <li>Renamed <code>dataset_title</code> to <code>title</code></li>
-  <li>Renamed <code>dataset_description</code> to <code>description</code></li>
-  <li>Renamed <code>cellannotation_setdescription</code> to <code>description </code></li>
-</ul> 
-
-schema version 1.0.1 
- <ul>
-  <li>Added <code>hierarchy</code> to <code>uns</code> section</li>
-</ul> 
-
-schema version 1.0.2 
- <ul>
-  <li>Added <code>[cellannotation_setname]--confidence_score</code> to <code>obs</code> section</li>
-</ul> 
