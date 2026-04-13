@@ -1340,7 +1340,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>This MUST be a string in the format <code>[FIRST NAME] [LAST NAME]</code>.</td>
+  		<td>Name of the corresponding author of the publication. This MUST be a string in the format <code>[FIRST NAME] [LAST NAME]</code>.</td>
 	</tr>
 	<tr>
   		<td><b>source</b></td>
@@ -1372,7 +1372,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>This MUST be a valid email address of the author.</td>
+  		<td>This MUST be a valid email address of the corresponding author.</td>
 	</tr>
 	<tr>
   		<td><b>source</b></td>
@@ -1403,7 +1403,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>This MUST be a valid ORCID for the author.</td>
+  		<td>This MUST be a valid ORCID for the corresponding author.</td>
 	</tr>
 	<tr>
   		<td><b>source</b></td>
@@ -1452,10 +1452,7 @@ A dictionary in the `uns` dictionary
 
 ## cap_metadata["cellannotation_metadata"]
 
-Python dictionary within the `uns` dictionary, with the key the string `[cellannotation_setname]`
-
-
-#### cap_metadata["cellannotation_metadata"]
+Python dictionary within the `uns` dictionary, with the key the string `[cellannotation_setname]`. Contains all the metadata related to the cell annotation set, also known as a labelset.
 
 <table><tbody>
 	<tr>
