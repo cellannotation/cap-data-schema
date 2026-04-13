@@ -1008,7 +1008,7 @@ whereby:
 
 # uns (Dataset metadata)
 
-**NOTE:** Most of fields are isolated in the `uns["cap_metadata"]` dict container to prevent any conflicts with other AnnData schemas. Except of `uns["title"]` which has the same key name and meaning in most known AnnData schemas.
+**NOTE:** Most fields are isolated in the `uns["cap_metadata"]` dictionary container to prevent conflicts with other AnnData schemas, except for `uns["title"]`, which has the same key name and meaning in most known AnnData schemas.
 **NOTE:** Each time a cell annotation `cellannotation_setname` is modified, these values potentially change. 
 
 ## title
@@ -1061,8 +1061,7 @@ Key-value pair in the `uns` dictionary
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>The schema version, the cell annotation open standard. 
-This versioning MUST follow the format <code>'[MAJOR].[MINOR].[PATCH]'</code> as defined by <a href="https://semver.org">Semantic Versioning 2.0.0.</a> Current version MUST follow 2.0.0</td>
+  		<td> The schema version, which was used upon dataset creation or publication on CAP. Current version MUST be <code>"2.0.0"</code>.</td>
 	</tr>
 	<tr>
   		<td><b>source</b></td>
