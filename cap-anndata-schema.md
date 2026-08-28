@@ -674,7 +674,7 @@ NOTE: If the `[cellannotation_setname]--cell_ontology_exists` field is `False`, 
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>Comma-separated string of gene names explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.</td>
+  		<td>Comma-separated string of gene names explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData file.</td>
 	</tr>
 	<tr>
   		<td><b>source</b></td>
@@ -709,7 +709,7 @@ NOTE: If the `[cellannotation_setname]--cell_ontology_exists` field is `False`, 
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>Comma-separated string of gene names with low or no expression that are used as negative evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.</td>
+  		<td>Comma-separated string of gene names with low or no expression that are used as negative evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData file.</td>
 	</tr>
 	<tr>
   		<td><b>source</b></td>
