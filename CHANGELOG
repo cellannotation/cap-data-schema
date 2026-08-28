@@ -1,6 +1,10 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+## [2.0.1]
+
+### Changed
+- Added `[cellannotation_setname]--negative_marker_genes` to `obs` section 
 
 ## [2.0.0]
 
