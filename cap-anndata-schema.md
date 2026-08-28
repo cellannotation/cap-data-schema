@@ -2,7 +2,7 @@
 
 Contact: [...]
 
-Version: 2.0.0
+Version: 2.0.1
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED" "MAY", and "OPTIONAL" in this document are to be interpreted as described in [BCP 14](https://tools.ietf.org/html/bcp14), [RFC2119](https://www.rfc-editor.org/rfc/rfc2119.txt), and [RFC8174](https://www.rfc-editor.org/rfc/rfc8174.txt) when, and only when, they appear in all capitals, as shown here.
 
@@ -674,7 +674,7 @@ NOTE: If the `[cellannotation_setname]--cell_ontology_exists` field is `False`, 
 	</tr>
 	<tr>
   		<td><b>value</b></td>
-  		<td>Comma-separated string of gene names explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData/Seurat file.</td>
+  		<td>Comma-separated string of gene names explicitly used as evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData file.</td>
 	</tr>
 	<tr>
   		<td><b>source</b></td>
@@ -690,6 +690,40 @@ NOTE: If the `[cellannotation_setname]--cell_ontology_exists` field is `False`, 
 	</tr>
 </tbody></table>
 
+### [cellannotation_setname]--negative_marker_genes
+
+**Format:** The column name is the value `[cellannotation_setname]` concatenated with the string `'negative_marker_genes'` and two hyphens, i.e. `[cellannotation_setname] + '--' + 'negative_marker_genes'`
+
+<table><tbody>
+	<tr>
+  		<td><b>column</b></td>
+  		<td><code>[cellannotation_set]--negative_marker_genes</code></td>
+	</tr>
+	<tr>
+  		<td><b>index</b></td>
+  		<td>Cell barcode names</td>
+	</tr>
+	<tr>
+  		<td><b>dtype</b></td>
+  		<td>string</td>
+	</tr>
+	<tr>
+  		<td><b>value</b></td>
+  		<td>Comma-separated string of gene names with low or no expression that are used as negative evidence for this cell annotation. Each gene MUST be included in the matrix of the AnnData file.</td>
+	</tr>
+	<tr>
+  		<td><b>source</b></td>
+  		<td>file or UI</td>
+	</tr>
+	<tr>
+  		<td><b>required for publication on CAP</b></td>
+  		<td>no</td>
+	</tr>
+	<tr>
+  		<td><b>example</b></td>
+  		<td><code>'GZMK'</code></td>
+	</tr>
+</tbody></table>
 
 ### [cellannotation_setname]--canonical_marker_genes
 
